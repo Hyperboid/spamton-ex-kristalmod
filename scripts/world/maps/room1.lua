@@ -186,7 +186,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["actor"] = "spamton",
+            ["actor"] = "spamton_ex",
             ["encounter"] = "spamton_ex"
           }
         },

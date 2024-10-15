@@ -45,7 +45,7 @@ function SpamtonEX:init()
         "* Spamton EX is doing strange\ndance moves!",
 	"* Spamton bakes a cake using a vegan pipis substitute.",
 	"* Smells like Spamton.",
-	"* Spamton tries to sell you a \ncar!\n[wait:4]\n...But he lost his keys."
+	"* Spamton tries to sell you a \ncar!\n[wait:4]...But he lost his keys."
     }
     -- Text displayed at the bottom of the screen when the enemy has low health
     self.low_health_text = "* The dummy looks like it's\nabout to fall over."

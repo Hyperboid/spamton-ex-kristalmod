@@ -38,7 +38,7 @@ function SpamtonEX:init()
     }
 
     -- Check text (automatically has "ENEMY NAME - " at the start)
-    self.check = {"BIGGER AND BETTER THAN EVER!!!", "* THOUGH... DEFENSE IS STILL A LITTLE \"[color:yellow]SHAKY[color:reset].\" "}
+    self.check = "* "
 
     -- Text randomly displayed at the bottom of the screen each turn
     self.text = {

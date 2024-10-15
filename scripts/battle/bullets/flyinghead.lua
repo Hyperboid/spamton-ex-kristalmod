@@ -24,6 +24,15 @@ function FlyingHead:update()
     self.lerper = self.lerper + DT
     local t = 0
 
+
+    if self.lerper < 1 then
+        t = 1-math.pow(1-self.lerper, 1.6)
+    else
+        t = 1+math.pow(self.lerper-1,1.2)
+    end
+    self.x = Utils.lerp(self.initial_x, self.target_x, t, true)
+    self.y = Utils.lerp(self.initial_y, self.target_y, t, true)
+
     if t > 0.9 and self.shot_status == 0 then
         self.shot_status = 1
         self.sprite:set({"bullets/flyinghead/spr_sneo_crew", 0.5})
@@ -34,14 +43,7 @@ function FlyingHead:update()
         self.wave:spawnBullet("smallbullet", x, y, angle, 8)
         self.shot_status = 2
     end
-
-    if self.lerper < 1 then
-        t = 1-math.pow(1-self.lerper, 1.6)
-    else
-        t = 1+math.pow(self.lerper-1,1.2)
-    end
-    self.x = Utils.lerp(self.initial_x, self.target_x, t, true)
-    self.y = Utils.lerp(self.initial_y, self.target_y, t, true)
+    
 end
 
 function FlyingHead:onYellowShot(shot, damage)

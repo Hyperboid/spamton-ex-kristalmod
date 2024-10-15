@@ -235,7 +235,7 @@ return {
           properties = {
             ["actor"] = "spamton_ex",
             ["text1"] = "* HEY NOW [kris kross],,, DON\"t BE s0 [[VOILENCE]]!!!",
-            ["text2"] = "* [[I'M NOT THE ONE YOU WAN'T]] IF YOU WANT a [[color:yellow]fight[color:reset]] [Than] ASK THaT [stranger] oVER THERE!!"
+            ["text2"] = "* [[IM NOT THE ONE YOU WAN'T]] IF you WANT a [[color:yellow]fight[color:reset]] [Than] ASK THaT [stranger] oVER THERE!!"
           }
         }
       }

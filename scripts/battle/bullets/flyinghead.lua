@@ -24,8 +24,7 @@ function FlyingHead:update()
     self.lerper = self.lerper + DT
     local t = 0
 
-    local dist = Utils.dist(self.x, self.y, self.target_x, self.target_y)
-    if dist > 20 and self.shot_status == 0 then
+    if t > 0.9 and self.shot_status == 0 then
         self.shot_status = 1
         self.sprite:set({"bullets/flyinghead/spr_sneo_crew", 0.5})
     end

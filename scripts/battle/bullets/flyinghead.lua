@@ -4,7 +4,11 @@ local FlyingHead, super = Class(YellowSoulBullet)
 function FlyingHead:init(x, y, texture)
     super:init(self, x, y, "bullets/flyinghead/spr_sneo_crew_0")
     self:setScale(1)
-    self:setColor(0.6,1,0.9)
+    self:setColor(
+        0x43/256,
+        0xb3/256, 
+        0xd9/256
+    )
     self.initial_x = self.x
     self.initial_y = self.y
     self.target_x = self.x

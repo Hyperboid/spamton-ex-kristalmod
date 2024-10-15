@@ -29,11 +29,13 @@ function Sencounter:init()
 end
 
 function Sencounter:onBattleStart()
-    local reference = Sprite("reference")
-    reference.alpha = .5
-    reference.layer = -1000
-    reference:setScale(0.71)
-    Game.battle:addChild(reference)
+    pcall(function()
+        local reference = Sprite("reference")
+        reference.alpha = .5
+        reference.layer = -1000
+        reference:setScale(0.71)
+        Game.battle:addChild(reference)
+    end)
     Game.battle:addChild(self.krishead)
 end
 

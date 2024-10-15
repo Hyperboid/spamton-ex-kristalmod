@@ -89,7 +89,7 @@
   </object>
   <object id="19" name="enemy" x="640" y="288">
    <properties>
-    <property name="actor" value="spamton"/>
+    <property name="actor" value="spamton_ex"/>
     <property name="encounter" value="spamton_ex"/>
    </properties>
    <point/>

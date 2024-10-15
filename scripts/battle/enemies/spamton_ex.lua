@@ -1,3 +1,4 @@
+---@class SpamtonEXBattler : EnemyBattler
 local SpamtonEX, super = Class(EnemyBattler)
 
 function SpamtonEX:init()
@@ -47,8 +48,8 @@ function SpamtonEX:init()
 	"* Smells like Spamton.",
 	"* Spamton tries to sell you a \ncar!\n[wait:4]...But he lost his keys."
     }
-    -- Text displayed at the bottom of the screen when the enemy has low health
-    self.low_health_text = "* The dummy looks like it's\nabout to fall over."
+    -- Prevent from getting tired [at half pri] i mean health
+    self.tired_percentage = 0
 
     -- Register act called "Smile"
     self:registerAct("Snap")

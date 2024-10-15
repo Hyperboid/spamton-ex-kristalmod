@@ -2,14 +2,14 @@
 local TrackLine, super = Class(Object)
 
 function TrackLine:init(x,y)
-    super.init(self, x,y, 200*5, 37*2)
-    -- self.origin_y = 37
-    self.track_sprites = Sprite("backgrounds/tracks")
-    self.track_sprites:addChild(Sprite("backgrounds/tracks", 100, 0)).debug_select = false
-    self.track_sprites:addChild(Sprite("backgrounds/tracks", (100*2), 0)).debug_select = false
-    self.track_sprites:addChild(Sprite("backgrounds/tracks", (100*3), 0)).debug_select = false
-    self.track_sprites:addChild(Sprite("backgrounds/tracks", (100*4), 0)).debug_select = false
-    self.track_sprites:addChild(Sprite("backgrounds/tracks", (100*5), 0)).debug_select = false
+    super.init(self, x,y, 320*10, 64)
+    self.origin_y = 1
+    self.track_sprites = Sprite("backgrounds/tracks", 0, -32)
+    self.track_sprites:addChild(Sprite("backgrounds/tracks", 320, 0)).debug_select = false
+    self.track_sprites:addChild(Sprite("backgrounds/tracks", (320*2), 0)).debug_select = false
+    self.track_sprites:addChild(Sprite("backgrounds/tracks", (320*3), 0)).debug_select = false
+    self.track_sprites:addChild(Sprite("backgrounds/tracks", (320*4), 0)).debug_select = false
+    self.track_sprites:addChild(Sprite("backgrounds/tracks", (320*5), 0)).debug_select = false
     self.track_sprites:setScale(2)
     self:addChild(self.track_sprites).debug_select = false
     self.speed = 100

@@ -1,4 +1,4 @@
-local SmallBullet, super = Class(YellowSoulBullet)
+local SmallBullet, super = Class(Bullet)
 
 function SmallBullet:init(x, y, dir, speed)
     -- Last argument = sprite path

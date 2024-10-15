@@ -23,6 +23,9 @@ function Sencounter:init()
     self.time_left = 715
 
     self.krishead = Sprite("party/kris/icon/head",68,7)
+    self.spamscape = Spamscape()
+    self.spamscape.speed = -100
+    self.spamscape.layer = -999
     self.turns = 0
     --- Uncomment this line to add another!
     --self:addEnemy("dummy")
@@ -37,6 +40,7 @@ function Sencounter:onBattleStart()
         Game.battle:addChild(reference)
     end)
     Game.battle:addChild(self.krishead)
+    Game.battle:addChild(self.spamscape)
 end
 
 function Sencounter:onActionsStart()

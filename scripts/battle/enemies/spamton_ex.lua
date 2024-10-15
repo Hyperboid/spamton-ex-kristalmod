@@ -75,7 +75,7 @@ function SpamtonEX:onAct(battler, name)
     elseif name == "Snap" then
         Assets.playSound("damage")
         self:addMercy(2)
-        self.sprite:snapStrings(3)
+        self.sprite:snapStrings(1)
         self.dialogue_override = "... ^^"
         self.sprite:setStringCount(math.max(0,100-self.mercy))
         return "* You snapped a wire!"
@@ -87,7 +87,7 @@ function SpamtonEX:onAct(battler, name)
         return "Everyone snapped wires!"
     elseif name == "Standard" then --X-Action
         Assets.playSound("damage")
-        self.sprite:snapString(nil, true)
+        self.sprite:snapStrings(1)
         self:addMercy(2)
         self.sprite:setStringCount(math.max(0,100-self.mercy))
         return "* "..battler.chara:getName().." snapped a wire!"

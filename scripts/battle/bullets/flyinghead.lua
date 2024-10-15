@@ -23,9 +23,9 @@ function FlyingHead:update()
     self.lerper = self.lerper + DT
     local t = 0
     if self.lerper < 1 then
-        t = 1-math.pow(1-self.lerper, 2)
+        t = 1-math.pow(1-self.lerper, 1.2)
     else
-        t = 1+math.pow(self.lerper-1,2)
+        t = 1+math.pow(self.lerper-1,1.2)
     end
     self.x = Utils.lerp(self.initial_x, self.target_x, t, true)
     self.y = Utils.lerp(self.initial_y, self.target_y, t, true)

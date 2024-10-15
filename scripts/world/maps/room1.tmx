@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.11" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="25">
+<map version="1.11" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="26">
  <editorsettings>
   <export target="room1.lua" format="lua"/>
  </editorsettings>
@@ -104,6 +104,14 @@
     <property name="map" value="room2"/>
     <property name="marker" value="entry"/>
    </properties>
+  </object>
+  <object id="25" name="npc" x="288" y="192">
+   <properties>
+    <property name="actor" value="spamton_ex"/>
+    <property name="text1" value="* HEY NOW [kris kross],,, DON&quot;t BE s0 [[VOILENCE]]!!!"/>
+    <property name="text2" value="* [[I'M NOT THE ONE YOU WAN'T]] IF YOU WANT a [[color:yellow]fight[color:reset]] [Than] ASK THaT [stranger] oVER THERE!!"/>
+   </properties>
+   <point/>
   </object>
  </objectgroup>
  <objectgroup color="#aa00ff" id="4" name="markers">

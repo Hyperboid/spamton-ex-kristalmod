@@ -10,7 +10,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 8,
-  nextobjectid = 25,
+  nextobjectid = 26,
   properties = {
     ["music"] = "thefunk"
   },
@@ -219,6 +219,23 @@ return {
           properties = {
             ["map"] = "room2",
             ["marker"] = "entry"
+          }
+        },
+        {
+          id = 25,
+          name = "npc",
+          type = "",
+          shape = "point",
+          x = 288,
+          y = 192,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["actor"] = "spamton_ex",
+            ["text1"] = "* HEY NOW [kris kross],,, DON\"t BE s0 [[VOILENCE]]!!!",
+            ["text2"] = "* [[I'M NOT THE ONE YOU WAN'T]] IF YOU WANT a [[color:yellow]fight[color:reset]] [Than] ASK THaT [stranger] oVER THERE!!"
           }
         }
       }

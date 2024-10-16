@@ -67,6 +67,10 @@ function Sencounter:update()
     end
 end
 
+function Sencounter:onFunnyYellowCheat()
+    Assets.playSound("carhonk")
+end
+
 function Sencounter:createSoul(x,y,color)
     return YellowSoul(x,y)
 end
@@ -81,7 +85,6 @@ function Sencounter:draw(fade)
     love.graphics.print(
         "Time left:\n    ".. (string.format("%.2f", self.time_left)), 0, 0
     )
-    
 end
 
 return Sencounter

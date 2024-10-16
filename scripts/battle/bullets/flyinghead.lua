@@ -47,11 +47,16 @@ function FlyingHead:update()
 end
 
 function FlyingHead:onYellowShot(shot, damage)
-    self.shot_health = self.shot_health - damage
-    if self.shot_health <= 0 then
-        self:destroy(shot)
+    Assets.playSound("bomb", 0.4)
+    return super.onYellowShot(self, shot,damage)
+end
+
+function FlyingHead:destroy(shot)
+    if self.shot_tp ~= 0 then
+        Game:giveTension(self.shot_tp)
     end
-    return "a", false
+    self.hitbox = nil
+    self:fadeOutAndRemove(0.2)
 end
 
 return FlyingHead

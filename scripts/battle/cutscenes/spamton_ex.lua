@@ -16,18 +16,18 @@ local function simpleDialog(text)
 end
 scenes.turnbyturn = {
     function(cutscene)
-        cutscene:battlerText(chara.spam,[==[
-HOLY [Howitzer]!! I'M
-SO [Ex] I CAN [Almost]
-SEE PAST THE DARK!]==])
+        cutscene:battlerText(chara.spam,Dedent[==[
+            HOLY [Howitzer]!! I'M
+            SO [Ex] I CAN [Almost]
+            SEE PAST THE DARK!]==])
         chara.spam.sprite:setSerious(true)
         cutscene:battlerText(chara.spam,"... [Almost].")
         chara.spam.sprite:setSerious(false)
-        cutscene:battlerText(chara.spam,[==[
-KRIS! MY [Little sponge]
-BE A [[BIG SHOT!!]] AND
-GIMME THAT [Soul.]
-YOU GOT!!!]==])
+        cutscene:battlerText(chara.spam,Dedent[==[
+            KRIS! MY [Little sponge]
+            BE A [[BIG SHOT!!]] AND
+            GIMME THAT [Soul.]
+            YOU GOT!!!]==])
     end
 }
 function scenes.fallback(cutscene)

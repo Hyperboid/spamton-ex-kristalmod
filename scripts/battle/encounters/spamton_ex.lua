@@ -26,6 +26,9 @@ function Sencounter:init()
     self.spamscape = Spamscape()
     self.spamscape.speed = -100
     self.spamscape.layer = -999
+    self.spamcarts = Sprite("backgrounds/carts",0,0)
+    self.spamcarts:setScale(2)
+    self.spamcarts.layer=-501
     self.turns = 0
     --- Uncomment this line to add another!
     --self:addEnemy("dummy")
@@ -41,6 +44,7 @@ function Sencounter:onBattleStart()
     end)
     Game.battle:addChild(self.krishead)
     Game.battle:addChild(self.spamscape)
+    Game.battle:addChild(self.spamcarts)
 end
 
 function Sencounter:onActionsStart()

@@ -21,7 +21,7 @@ scenes.turnbyturn = {
             SO [Ex] I CAN [Almost]
             SEE PAST THE DARK!]==])
         chara.spam.sprite:setSerious(true)
-        cutscene:battlerText(chara.spam,"... [Almost].")
+        cutscene:battlerText(chara.spam,"[speed:0.2]...[speed:0.6] [Almost].")
         chara.spam.sprite:setSerious(false)
         cutscene:battlerText(chara.spam,Dedent[==[
             KRIS! MY [Little sponge]

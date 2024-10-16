@@ -21,6 +21,7 @@ end
 
 function FlyingHead:update()
     super.update(self)
+    if self.alpha < 1 then return end -- this is temp
     self.lerper = self.lerper + DT
     local t = 0
 

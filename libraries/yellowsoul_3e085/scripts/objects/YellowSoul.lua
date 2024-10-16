@@ -162,6 +162,10 @@ end
 
 function YellowSoul:onCheat()
     Game.battle.encounter.funnycheat = (Game.battle.encounter.funnycheat or 0) + 1
+    Kristal.callEvent("onFunnyYellowCheat")
+    if Game.battle.encounter.onFunnyYellowCheat then
+        Game.battle.encounter:onFunnyYellowCheat()
+    end
 end
 
 return YellowSoul

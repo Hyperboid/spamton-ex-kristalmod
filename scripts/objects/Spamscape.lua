@@ -16,9 +16,9 @@ function Spamscape:init(x,y)
     self.foreground:addChild(Sprite("backgrounds/spamscape_foreground", (198*2), 0)).flip_x = false
     self.foreground:setScale(2)
     self.tracklines = {}
-    for i, v in ipairs({168,245,324}) do
+    for i, v in ipairs({163,252,334}) do
         self.tracklines[i] = TrackLine(0, v)
-        self.tracklines[i].speed = - 637
+        self.tracklines[i].speed = - 437
         self.tracklines[i].layer = 1
         self:addChild(self.tracklines[i])
     end

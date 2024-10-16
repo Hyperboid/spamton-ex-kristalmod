@@ -22,6 +22,7 @@ function Sencounter:init()
 
     self.time_left = 715
 
+    self.krisheadbg = Sprite("backgrounds/timer",0,0)
     self.krishead = Sprite("party/kris/icon/head",68,7)
     self.spamscape = Spamscape()
     self.spamscape.speed = -100
@@ -42,6 +43,7 @@ function Sencounter:onBattleStart()
         reference:setScale(0.71)
         Game.battle:addChild(reference)
     end)
+    Game.battle:addChild(self.krisheadbg)
     Game.battle:addChild(self.krishead)
     Game.battle:addChild(self.spamscape)
     Game.battle:addChild(self.spamcarts)

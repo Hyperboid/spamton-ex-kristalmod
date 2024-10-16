@@ -8,12 +8,20 @@ function SmallBullet:init(x, y, dir, speed)
     self.physics.direction = dir
     -- Speed the bullet moves (pixels per frame at 30FPS)
     self.physics.speed = speed
+
+    self:setScale(2)
+
+    self.rotation=0
+
 end
 
 function SmallBullet:update()
     -- For more complicated bullet behaviours, code here gets called every update
 
     super.update(self)
+
+    self.rotation=self.rotation+10
+
 end
 
 return SmallBullet

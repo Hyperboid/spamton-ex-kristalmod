@@ -77,6 +77,8 @@ end
 
 function Sencounter:onFunnyYellowCheat()
     Assets.playSound("carhonk")
+    -- Attack increases faster and faster
+    Game.battle.enemies[1].attack = Game.battle.enemies[1].attack + self.funnycheat
 end
 
 function Sencounter:createSoul(x,y,color)

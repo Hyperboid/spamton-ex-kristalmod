@@ -94,7 +94,7 @@ end
 
 ---does the funny head thing
 ---@param timing_table table<integer, table<integer, integer>>
-function Spamton:inflateEgo(timing_table)
+function Spamton:inflateEgo(timing_table) -- look up spamton inflation trust me bro
     if timing_table == nil then
         timing_table = {
             {1, 2},

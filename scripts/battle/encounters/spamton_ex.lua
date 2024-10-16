@@ -22,13 +22,15 @@ function Sencounter:init()
 
     self.time_left = 715
 
-    self.krisheadbg = Sprite("backgrounds/timer",0,0)
+    self.krisheadbg = Sprite("backgrounds/timer",8,0)
+    self.krisheadbg.debug_select = false
     self.krishead = Sprite("party/kris/icon/head",68,7)
     self.spamscape = Spamscape()
     self.spamscape.speed = -100
     self.spamscape.layer = -999
     self.spamcarts = Sprite("backgrounds/carts",0,0)
     self.spamcarts:setScale(2)
+    self.spamcarts.debug_select = false
     self.spamcarts.layer=-501
     self.turns = 0
     --- Uncomment this line to add another!
@@ -45,7 +47,7 @@ function Sencounter:onBattleStart()
     end)
     Game.battle:addChild(self.krisheadbg)
     Game.battle:addChild(self.krishead)
-    Game.battle:addChild(self.spamscape)
+    Game.battle:addChild(self.spamscape).debug_select = false
     Game.battle:addChild(self.spamcarts)
 end
 

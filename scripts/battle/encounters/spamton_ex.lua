@@ -83,7 +83,7 @@ end
 
 function Sencounter:draw(fade)
     super:draw(self, fade)
-    if not Game.battle.seen_encounter_text then return end -- janky ass way to do this check but whatever
+    if not Game.battle.seen_encounter_text then return end -- janky ass way to do this check but whatever (idk it looks pretty clever to me but whatever - THat)
     local font = Assets.getFont("main", 16)
     ---@diagnostic disable-next-line: param-type-mismatch
     love.graphics.setFont(font)

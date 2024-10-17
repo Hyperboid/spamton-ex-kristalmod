@@ -33,7 +33,7 @@ return {
         if hit == 0 then
             cutscene:text("* Missed!")
         else
-            cutscene:text("* The wire greatly loosened!")
+            cutscene:text("* The strings greatly loosened!")
         end
 
         for _,enemy in ipairs(Game.battle:getActiveEnemies()) do

@@ -58,7 +58,7 @@ function SpamtonEX:init()
     -- Register party act with Ralsei called "Tell Story"
     -- (second argument is description, usually empty)
     self:registerAct("SnapAll", "", {"susie", "ralsei"})
-    self:registerAct("ThrowString", "Toss Kris\nto free\nwire\n", {"susie"}, 10000)
+    self:registerAct("ThrowString", "Toss Kris\nto free\nwire\n", {"susie"}, 0)
 end
 
 function SpamtonEX:hurt(amount,...)
@@ -88,6 +88,8 @@ function SpamtonEX:onAct(battler, name)
         self:addMercy(7)
         self.sprite:setStringCount(math.max(0,(100-self.mercy)/2))
         return "Everyone snapped wires!"
+    elseif name == "ThrowString" then
+        Game.battle:startActCutscene("specil", "throwstring")
     elseif name == "Standard" then --X-Action
         Assets.playSound("damage")
         self.sprite:snapStrings(1)

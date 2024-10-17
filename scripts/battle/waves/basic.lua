@@ -13,7 +13,13 @@ function Basic:onStart()
         self.timer:script(function(wait)
             for i=1,4 do
                 local bullet = self:spawnBullet("flyinghead", x, y, math.rad(180), 0)
-                bullet.target_x = Game.battle.arena.x
+                if x > 0 then
+                    bullet.target_x = Game.battle.arena.x + (20 * i)
+                    bullet.target_x = bullet.target_x + 20
+                else
+                    bullet.target_x = Game.battle.arena.x - (20 * i)
+                    bullet.target_x = bullet.target_x + 80
+                end
                 -- Dont remove the bullet offscreen, because we spawn it offscreen
                 bullet.remove_offscreen = false
                 wait(0.1)

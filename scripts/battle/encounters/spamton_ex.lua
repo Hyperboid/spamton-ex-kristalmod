@@ -69,7 +69,7 @@ function Sencounter:update()
     self.krishead.x = 68 + ((715 - self.time_left)/1.35)
     if self.time_left < 0 then
         Assets.playSound("drive")
-        Game:gameOver()
+        Game:gameOver(Game.battle:getSoulLocation())
         -- Game.battle.music:seek(12)
         -- self.time_left = self.time_left + .1
     end

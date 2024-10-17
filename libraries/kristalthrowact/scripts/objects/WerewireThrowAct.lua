@@ -36,9 +36,12 @@ function WerewireThrowAct:setup()
     for _,werewire in ipairs(self.werewires) do
         local target_x, target_y = werewire:getRelativePos(1, 11, Game.battle)
 
-        for i=1,16 do
+        for i=1,4 do
             
-            local target = WerewireThrowTarget(target_x + 32 + (2 * i), target_y)
+            local target = WerewireThrowTarget(target_x + 22 + (12 * i), target_y - 40)
+            target.amplitude = 120
+            target.increment = 4.0
+            target.progress = i * 20
             target.layer = werewire.layer + 0.01
             self:addChild(target)
             

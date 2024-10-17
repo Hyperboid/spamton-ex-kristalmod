@@ -43,6 +43,7 @@ function WerewireThrowAct:setup()
             target.increment = 4.0
             target.progress = i * 20
             target.layer = werewire.layer + 0.01
+            target:setScale(1)
             self:addChild(target)
             
             table.insert(self.targets, target)

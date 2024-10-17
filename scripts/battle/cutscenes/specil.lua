@@ -1,20 +1,11 @@
 return {
-    throwstring = function(cutscene)
+    throwstring = function(cutscene, battler, enemy)
         local last_positions = {}
 
-        local werewires = Utils.filter(Game.battle:getActiveEnemies(), function(e) return e.id == "spamton_ex" end)
-
-        local werewire_index = 0
+        local werewires = {enemy}
         for _,enemy in ipairs(Game.battle:getActiveEnemies()) do
             last_positions[enemy] = {x = enemy.x, y = enemy.y}
-
-            if enemy.id ~= "spamton_ex" then
-                enemy:slideTo(740, enemy.y, 0.5)
-            else
-                local step = 250 / (#werewires - 1)
-                enemy:slideTo(enemy.x, 502, 0.5)
-                werewire_index = werewire_index + 1
-            end
+            enemy:slideTo(enemy.x, 502, 0.5)
         end
 
         cutscene:wait(0.5)

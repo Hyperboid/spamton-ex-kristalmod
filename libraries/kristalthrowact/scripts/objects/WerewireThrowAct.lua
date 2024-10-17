@@ -7,6 +7,7 @@ function WerewireThrowAct:init(werewires)
     self.targets = {}
 
     self.hit = {}
+    self.hitCount = 0
 
     self.angle = 0
     self.angle_speed = 2
@@ -35,11 +36,9 @@ function WerewireThrowAct:setup()
     for _,werewire in ipairs(self.werewires) do
         local target_x, target_y = werewire:getRelativePos(1, 11, Game.battle)
 
-        local target = WerewireThrowTarget(target_x, target_y)
+        local target = WerewireThrowTarget(target_x+32, target_y)
         target.layer = werewire.layer + 0.01
         self:addChild(target)
-
-        target.target = werewire
 
         table.insert(self.targets, target)
     end
@@ -96,7 +95,7 @@ function WerewireThrowAct:throw()
 
     self.state = "THROW"
 
-    return function() return self.state == "DONE", self.hit end
+    return function() return self.state == "DONE", self.hitCount end
 end
 
 function WerewireThrowAct:update()
@@ -127,6 +126,7 @@ function WerewireThrowAct:update()
         for _,target in ipairs(self.targets) do
             if self.fake_kris:collidesWith(target) then
                 table.insert(self.hit, target.target)
+                self.hitCount = self.hitCount + 1
                 target:slash(self.kris_battler)
             end
         end

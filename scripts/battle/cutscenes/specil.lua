@@ -30,7 +30,7 @@ return {
 
         thrower:clear()
 
-        if #hit == 0 then
+        if hit == 0 then
             cutscene:text("* Missed!")
         else
             cutscene:text("* The wire greatly loosened!")
@@ -42,12 +42,6 @@ return {
 
         cutscene:wait(0.5)
 
-        for _,enemy in ipairs(werewires) do
-            if Utils.containsValue(hit, enemy) then
-                enemy:addMercy(20)
-            else
-                enemy:addMercy(0)
-            end
-        end
+        enemy:addMercy(8 * hit)
     end
 }

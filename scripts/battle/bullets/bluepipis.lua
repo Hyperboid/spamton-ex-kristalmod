@@ -28,7 +28,7 @@ function SmallBullet:update()
 
     self.rotation=self.rotation+10
 
-    self.speed=self.speed*.9
+    self.physics.speed=self.physics.speed*.9
 
 end
 

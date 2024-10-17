@@ -34,6 +34,7 @@ function BreakEffect:init(texture, x, y, after)
             block.quad = love.graphics.newQuad(qx, qy, qw, qh, self.width, self.height)
 
             block.x = (i * self.block_size)
+            block.y = (j * self.block_size)
             block.speed = 0
             block.delay = (4 + (j * 3)) - i
 
@@ -58,7 +59,8 @@ function BreakEffect:update()
             if block.delay <= 0 then
                 block.speed = block.speed + DTMULT
             end
-            block.x = block.x + block.speed * DTMULT
+            block.x = block.x + ((i * 2)-1) * DTMULT
+            block.y = block.y + ((j * 2)-1) * DTMULT
             block.delay = block.delay - DTMULT
         end
     end
@@ -80,8 +82,8 @@ function BreakEffect:draw()
     for i = 0, self.blocks_x do
         for j = 0, self.blocks_y do
             local block = self.blocks[i][j]
-            Draw.setColor(r, g, b, a * (1 - (block.speed / 12)))
-            Draw.draw(self.texture, block.quad, block.x, (j * self.block_size))
+            Draw.setColor(r, g, b, a)
+            Draw.draw(self.texture, block.quad, block.x, block.y)
         end
     end
 

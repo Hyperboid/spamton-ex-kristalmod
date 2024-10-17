@@ -28,7 +28,7 @@ scenes.turnbyturn = {
             BE A [[BIG SHOT!!]] AND
             GIMME THAT [Soul.]
             YOU GOT!!!]==])
-    end
+    end,
 }
 function scenes.fallback(cutscene)
     cutscene:battlerText(chara.spam, {

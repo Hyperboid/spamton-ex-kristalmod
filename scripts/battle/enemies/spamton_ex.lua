@@ -27,7 +27,7 @@ function SpamtonEX:init()
     -- List of possible wave ids, randomly picked each turn
     self.waves = {
         "basic",
-        "bluepipistest",
+        --"bluepipistest", i failed :(
         --"aiming",
         --"movingarena"
     }

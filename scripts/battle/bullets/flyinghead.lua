@@ -53,11 +53,13 @@ function FlyingHead:onYellowShot(shot, damage)
 end
 
 function FlyingHead:destroy(shot)
-    if self.shot_tp ~= 0 then
-        Game:giveTension(self.shot_tp)
-    end
-    self.hitbox = nil
-    self:fadeOutAndRemove(0.2)
+    local breakFx = BreakEffect(self.sprite.texture, self.x, self.y)
+    breakFx.origin_x = self.origin_x
+    breakFx.origin_y = self.origin_y
+    breakFx.color = self.color
+    breakFx.layer = self.layer + 1
+    self.parent:addChild(breakFx)
+    super.destroy(self,shot)
 end
 
 return FlyingHead

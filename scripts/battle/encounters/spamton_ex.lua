@@ -9,7 +9,10 @@ function Sencounter:init()
     super.init(self)
 
     -- Text displayed at the bottom of the screen at the start of the encounter
-    self.text = "[face:susie/teeth_b][voice:susie]* Kris, what the hell??\nWe're going backwards?"
+    self.text = ({
+        "[face:susie/teeth_b][voice:susie]* Kris, what the hell??\nWe're going backwards?",
+        "[face:susie/annoyed][voice:susie]* We need to win FAST before we run outta track!"
+    })[1] -- remove the [1] when tfl's pr is done
 
     -- Battle music ("battle" is rude buster)
     self.music = nil--

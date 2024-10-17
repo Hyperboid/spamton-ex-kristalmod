@@ -6,7 +6,7 @@ function WerewireThrowTarget:init(x, y)
     self:setScale(2, 2)
     self:setOrigin(0.5, 0.5)
 
-    self:setHitbox(0, 0, self.width, self.height)
+    self:setHitbox(-2, -40, self.width+2, self.height+40)
 
     self.start_x = self.x
     self.start_y = self.y

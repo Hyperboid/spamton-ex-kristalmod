@@ -17,12 +17,14 @@ function FlyingHead:init(x, y, texture)
     self.shot_tp = 0.5 -- TODO: Get the actual amount from the game (I'm just guessing from the animation here)
     self.lerper = 0
     self.shot_status = 0
+    self.speed = 1
+    self.shot_t_threshold = 0.9
 end
 
 function FlyingHead:update()
     super.update(self)
     if self.alpha < 1 then return end -- this is temp
-    self.lerper = self.lerper + DT
+    self.lerper = self.lerper + (DT * self.speed)
     local t = 0
 
 
@@ -34,7 +36,7 @@ function FlyingHead:update()
     self.x = Utils.lerp(self.initial_x, self.target_x, t, true)
     self.y = Utils.lerp(self.initial_y, self.target_y, t, true)
 
-    if t > 0.9 and self.shot_status == 0 then
+    if t > self.shot_t_threshold and self.shot_status == 0 then
         self.shot_status = 1
         self.sprite:set({"bullets/flyinghead/spr_sneo_crew", 0.5})
     end

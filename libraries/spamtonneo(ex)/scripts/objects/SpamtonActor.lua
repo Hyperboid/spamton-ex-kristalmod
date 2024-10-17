@@ -95,22 +95,29 @@ end
 ---does the funny head thing
 ---@param timing_table table<integer, table<integer, integer>>
 function Spamton:inflateEgo(timing_table)
-    if self.ego then return end
-    self.ego = true
+    if self.ego then
+        self.ego.handle.time = 100
+        self.ego_cancel = true
+        self.ego_tween.time = 1
+    end
     if timing_table == nil then
         timing_table = {
             {1, 2},
             {2, 1},
         }
     end
-    self.timer:script(function(wait)
+    self.ego = self.timer:script(function(wait)
+        wait(1/60)
+        self.ego_cancel = false
         for index, timing_entry in ipairs(timing_table) do
             local duration = timing_entry[1]
             local scale = timing_entry[2]
-            self.timer:tween(duration, self.head.sprite, {scale_x = scale, scale_y = scale})
+            self.ego_tween = self.timer:tween(duration, self.head.sprite, {scale_x = scale, scale_y = scale})
             wait(duration)
+            if self.ego_cancel then
+                break
+            end
         end
-        self.ego = false
     end)
 end
 

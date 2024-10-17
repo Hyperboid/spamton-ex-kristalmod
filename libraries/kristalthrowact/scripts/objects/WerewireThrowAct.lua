@@ -36,11 +36,14 @@ function WerewireThrowAct:setup()
     for _,werewire in ipairs(self.werewires) do
         local target_x, target_y = werewire:getRelativePos(1, 11, Game.battle)
 
-        local target = WerewireThrowTarget(target_x+32, target_y)
-        target.layer = werewire.layer + 0.01
-        self:addChild(target)
-
-        table.insert(self.targets, target)
+        for i=1,16 do
+            
+            local target = WerewireThrowTarget(target_x + 32 + (2 * i), target_y)
+            target.layer = werewire.layer + 0.01
+            self:addChild(target)
+            
+            table.insert(self.targets, target)
+        end
     end
 
     self.kris_battler = Game.battle:getPartyBattler("kris")

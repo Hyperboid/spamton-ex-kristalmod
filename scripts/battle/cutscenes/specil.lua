@@ -42,6 +42,8 @@ return {
 
         cutscene:wait(0.5)
 
-        enemy:addMercy(8 * hit)
+        enemy:addMercy(2 * hit)
+        enemy.sprite:snapStrings(hit)
+        enemy.sprite:setStringCount(math.max(0,(100-enemy.mercy)/2))
     end
 }

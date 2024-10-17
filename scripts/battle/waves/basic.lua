@@ -17,6 +17,7 @@ function Basic:deployHeads()
             else
                 bullet.target_x = Game.battle.arena.x - (20 * i)
                 bullet.target_x = bullet.target_x + 80
+                bullet.sprite.flip_x = true
             end
             -- Dont remove the bullet offscreen, because we spawn it offscreen
             bullet.remove_offscreen = false

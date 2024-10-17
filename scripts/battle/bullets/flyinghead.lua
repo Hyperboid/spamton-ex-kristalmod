@@ -58,6 +58,8 @@ function FlyingHead:destroy(shot)
     local breakFx = BreakEffect(self.sprite.texture, self.x, self.y)
     breakFx.origin_x = self.origin_x
     breakFx.origin_y = self.origin_y
+    breakFx.flip_x = self.sprite.flip_x ~= self.flip_x
+    breakFx.flip_y = self.sprite.flip_y ~= self.flip_y
     breakFx.color = self.color
     breakFx.layer = self.layer + 1
     self.parent:addChild(breakFx)

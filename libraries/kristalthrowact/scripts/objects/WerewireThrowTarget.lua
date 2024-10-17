@@ -23,7 +23,6 @@ function WerewireThrowTarget:init(x, y)
     self.shift = self.amplitude * math.sin(math.rad(self.progress))
 
     self.y = self.shift_y + self.shift
-    self.x = (self.start_x - (self.y + 0.1) / 3.375) + 18
 end
 
 function WerewireThrowTarget:update()
@@ -31,7 +30,6 @@ function WerewireThrowTarget:update()
     self.shift = self.amplitude * math.sin(math.rad(self.progress))
 
     self.y = self.shift_y + self.shift
-    self.x = (self.start_x - (self.y + 0.1) / 3.375) + 18 + (self.width/2 * self.scale_x)
 
     super:update(self)
 end

@@ -1,5 +1,9 @@
 ---@class BasicWave : Wave
 local Basic, super = Class(Wave)
+function Basic:init()
+    super.init(self)
+    self.time = 15
+end
 
 function Basic:deployHeads()
     self.timer:script(function(wait)
@@ -32,7 +36,7 @@ function Basic:onStart()
     -- Every 0.66 seconds...
     self.timer:every(4/3, function ()
         self:deployHeads()
-    end)
+    end, 4)
 end
 
 function Basic:onArenaEnter()

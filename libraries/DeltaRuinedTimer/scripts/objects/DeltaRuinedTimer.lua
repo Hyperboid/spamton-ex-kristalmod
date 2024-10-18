@@ -3,7 +3,7 @@
 local DeltaRuinedTimer, super = Class(Object)
 
 function DeltaRuinedTimer:init(duration, x, y)
-    super.init(self, x, y, SCREEN_WIDTH, 80)
+    super.init(self, x, y, SCREEN_WIDTH, 40)
     self.duration = duration
     self.elapsed = 0
     self.background = Sprite("backgrounds/timer",12,0)

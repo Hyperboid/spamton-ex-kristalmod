@@ -6,7 +6,7 @@ function DeltaRuinedTimer:init(duration, x, y)
     super.init(self, x, y, SCREEN_WIDTH, 80)
     self.duration = duration
     self.elapsed = 0
-    self.background = Sprite("backgrounds/timer",8,0)
+    self.background = Sprite("backgrounds/timer",12,0)
     self.background.debug_select = false
     self.background.debug_select = false
     self.krishead = Sprite("party/kris/icon/head",68,7)
@@ -30,6 +30,8 @@ function DeltaRuinedTimer:getTimeLeft()
 end
 
 function DeltaRuinedTimer:draw()
+    love.graphics.setColor(0, 0, 0, 1.5)
+    love.graphics.rectangle("fill", 0, 0, SCREEN_WIDTH, 38)
     super.draw(self)
     local font = Assets.getFont("main", 16)
     ---@diagnostic disable-next-line: param-type-mismatch

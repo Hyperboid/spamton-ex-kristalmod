@@ -56,7 +56,7 @@
     // in the file `window_icon.png`.
     // When your mod is configured as the engine's target mod, it's automatically done unless if
     // this option is explicitly set to false; else, it's done if this is set to true.
-    "setWindowTitleAndIcon": null,
+    "setWindowTitleAndIcon": true,
 
     "useSaves": false,
 

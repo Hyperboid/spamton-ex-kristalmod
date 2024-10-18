@@ -18,7 +18,7 @@ end
 function DeltaRuinedTimer:update()
     super.update(self)
     self.elapsed = self.elapsed + DT
-    self.krishead.x = 68 + ((715 - self:getTimeLeft())/1.35)
+    self.krishead.x = Utils.lerp(63, 590, self.elapsed / self.duration)
     if self:getTimeLeft() < 0 and not self.isExpired then
         self.isExpired = true
         self:onExpire()

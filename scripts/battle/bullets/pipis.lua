@@ -1,3 +1,4 @@
+---@class Pipis: YellowSoulBullet
 local Pipis, super = Class(YellowSoulBullet, "pipis")
 local sprite_prefix = "bullets/pipis/egg_"
 function Pipis:init(x, y, dir, speed)

@@ -10,7 +10,7 @@ function Pipis:init(x, y, dir, speed)
         0xb3/256, 
         0xd9/256
     )
-    self.shot_health = 3
+    self.shot_health = 4
     self.shot_tp = 0.5 -- TODO: Get the actual amount from the game (I'm just guessing from the animation here)
     self.lerper = 0
     self.shot_status = 0
@@ -33,7 +33,7 @@ end
 function Pipis:onYellowShot(shot, damage)
     Assets.playSound("bomb", 0.4)
     local return_val = super.onYellowShot(self, shot,damage)
-    self:setSprite(sprite_prefix..4-self.shot_health)
+    self:setSprite(sprite_prefix..5-self.shot_health)
     return return_val
 end
 

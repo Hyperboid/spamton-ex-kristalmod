@@ -37,6 +37,17 @@ function Basic:onStart()
     self.timer:every(4/3, function ()
         self:deployHeads()
     end, 4)
+    self.timer:script(function (wait)
+        wait(8)
+        self.timer:tween(1.0, Game.battle.arena, {y = Game.battle.arena.y + 50})
+        wait(1.0)
+        self:bigHeadMode()
+    end)
+end
+
+function Basic:bigHeadMode()
+    -- TODO: add big head
+    Assets.playSound("alert") -- placeholder
 end
 
 function Basic:onArenaEnter()

@@ -90,4 +90,13 @@ function BreakEffect:draw()
     super.draw(self)
 end
 
+function BreakEffect:copyAppearance(other)
+    self.origin_x = other.origin_x
+    self.origin_y = other.origin_y
+    self.flip_x = other.sprite.flip_x ~= other.flip_x
+    self.flip_y = other.sprite.flip_y ~= other.flip_y
+    self.color = other.color
+    self.layer = other.layer
+end
+
 return BreakEffect

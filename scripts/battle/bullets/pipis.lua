@@ -39,7 +39,7 @@ end
 
 function Pipis:destroy(shot)
     for i = 1, 10, 1 do
-        print(Utils.dump(self.wave:spawnBullet("pipis_shard", self.x, self.y)))
+        self.wave:spawnBullet("pipis_shard", self.x, self.y)
     end
     super.destroy(self,shot)
     -- shot:destroy()

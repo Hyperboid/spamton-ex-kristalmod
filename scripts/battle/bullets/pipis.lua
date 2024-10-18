@@ -38,11 +38,11 @@ function Pipis:onYellowShot(shot, damage)
 end
 
 function Pipis:destroy(shot)
-    local breakFx = BreakEffect(self.sprite.texture, self.x, self.y)
-    breakFx:copyAppearance(self)
-    self.parent:addChild(breakFx)
+    for i = 1, 10, 1 do
+        print(Utils.dump(self.wave:spawnBullet("pipis_shard", self.x, self.y)))
+    end
     super.destroy(self,shot)
-    shot:destroy()
+    -- shot:destroy()
 end
 
 return Pipis

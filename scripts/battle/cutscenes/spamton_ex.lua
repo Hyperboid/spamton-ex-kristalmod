@@ -40,8 +40,8 @@ function scenes.master(cutscene)
 	local enc = Game.battle.encounter
 	local spamton = Game.battle.enemies[1]
 	-- cutscene:battlerText(spamton, {"[voice:spamton]I HAVE [Becomed] OMEGA", "NOW YOU [Canned] HURT ME [Jack]"}, spamfiguration)
-	if scenes.turnbyturn[enc.turns] then
-		scenes.turnbyturn[enc.turns](cutscene)
+	if scenes.turnbyturn[Game.battle.turn_count] then
+		scenes.turnbyturn[Game.battle.turn_count](cutscene)
     else
         scenes.fallback(cutscene)
 	end

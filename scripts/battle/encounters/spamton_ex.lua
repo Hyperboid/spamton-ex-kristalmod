@@ -32,7 +32,6 @@ function Sencounter:init()
     self.spamcarts.debug_select = false
     self.spamcarts.layer=-501
     self.drtimer = DeltaRuinedTimer(715)
-    self.turns = 0
     --- Uncomment this line to add another!
     --self:addEnemy("dummy")
 end
@@ -53,10 +52,6 @@ end
 function Sencounter:onTimerExpire()
     Assets.playSound("drive")
     Game:gameOver(Game.battle:getSoulLocation())
-end
-
-function Sencounter:onActionsStart()
-    self.turns = self.turns + 1
 end
 
 function Sencounter:beforeStateChange(old,new) 

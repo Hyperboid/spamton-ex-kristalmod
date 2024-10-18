@@ -6,15 +6,38 @@ function DeltaRuinedTimer:init(duration, x, y)
     super.init(self, x, y, SCREEN_WIDTH, 80)
     self.duration = duration
     self.elapsed = 0
+    self.background = Sprite("backgrounds/timer",8,0)
+    self.background.debug_select = false
+    self.background.debug_select = false
+    self.krishead = Sprite("party/kris/icon/head",68,7)
+    self:addChild(self.background)
+    self:addChild(self.krishead)
     self:setScale(1)
 end
 
 function DeltaRuinedTimer:update()
     super.update(self)
+    self.elapsed = self.elapsed + DT
+    self.krishead.x = 68 + ((715 - self:getTimeLeft())/1.35)
+    if self:getTimeLeft() < 0 and not self.isExpired then
+        self.isExpired = true
+        self:onExpire()
+    end
+end
+
+function DeltaRuinedTimer:getTimeLeft()
+    return self.duration - self.elapsed
 end
 
 function DeltaRuinedTimer:draw()
     super.draw(self)
+    local font = Assets.getFont("main", 16)
+    ---@diagnostic disable-next-line: param-type-mismatch
+    love.graphics.setFont(font)
+    love.graphics.setColor(1, 1, 1, 1)
+    love.graphics.print(
+        "Time left:\n    ".. (string.format("%.2f", self:getTimeLeft())), 0, 0
+    )
 end
 
 function DeltaRuinedTimer:onExpire()

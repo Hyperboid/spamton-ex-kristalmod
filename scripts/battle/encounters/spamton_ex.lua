@@ -23,11 +23,7 @@ function Sencounter:init()
     -- Add the dummy enemy to the encounter
     self:addEnemy("spamton_ex", 511, 259)
 
-    self.time_left = 715
-
-    self.krisheadbg = Sprite("backgrounds/timer",8,0)
-    self.krisheadbg.debug_select = false
-    self.krishead = Sprite("party/kris/icon/head",68,7)
+    
     self.spamscape = Spamscape()
     self.spamscape.speed = -100
     self.spamscape.layer = -999
@@ -48,10 +44,14 @@ function Sencounter:onBattleStart()
         reference:setScale(0.71)
         Game.battle:addChild(reference)
     end)
-    Game.battle:addChild(self.krisheadbg)
-    Game.battle:addChild(self.krishead)
+    Game.battle:addChild(DeltaRuinedTimer(715))
     Game.battle:addChild(self.spamscape).debug_select = false
     Game.battle:addChild(self.spamcarts)
+end
+
+function Sencounter:onTimerExpire()
+    Assets.playSound("drive")
+    Game:gameOver(Game.battle:getSoulLocation())
 end
 
 function Sencounter:onActionsStart()
@@ -68,14 +68,6 @@ function Sencounter:beforeStateChange(old,new)
 end
 function Sencounter:update()
     super.update(self)
-    self.time_left = self.time_left - DT
-    self.krishead.x = 68 + ((715 - self.time_left)/1.35)
-    if self.time_left < 0 then
-        Assets.playSound("drive")
-        Game:gameOver(Game.battle:getSoulLocation())
-        -- Game.battle.music:seek(12)
-        -- self.time_left = self.time_left + .1
-    end
 end
 
 function Sencounter:onFunnyYellowCheat()
@@ -96,18 +88,6 @@ end
 
 function Sencounter:createSoul(x,y,color)
     return YellowSoul(x,y)
-end
-
-function Sencounter:draw(fade)
-    super:draw(self, fade)
-    if not Game.battle.seen_encounter_text then return end -- janky ass way to do this check but whatever (idk it looks pretty clever to me but whatever - THat)
-    local font = Assets.getFont("main", 16)
-    ---@diagnostic disable-next-line: param-type-mismatch
-    love.graphics.setFont(font)
-    love.graphics.setColor(1, 1, 1, 1)
-    love.graphics.print(
-        "Time left:\n    ".. (string.format("%.2f", self.time_left)), 0, 0
-    )
 end
 
 return Sencounter

@@ -31,6 +31,7 @@ function Sencounter:init()
     self.spamcarts:setScale(2)
     self.spamcarts.debug_select = false
     self.spamcarts.layer=-501
+    self.drtimer = DeltaRuinedTimer(715)
     self.turns = 0
     --- Uncomment this line to add another!
     --self:addEnemy("dummy")
@@ -44,7 +45,7 @@ function Sencounter:onBattleStart()
         reference:setScale(0.71)
         Game.battle:addChild(reference)
     end)
-    Game.battle:addChild(DeltaRuinedTimer(715))
+    Game.battle:addChild(self.drtimer)
     Game.battle:addChild(self.spamscape).debug_select = false
     Game.battle:addChild(self.spamcarts)
 end

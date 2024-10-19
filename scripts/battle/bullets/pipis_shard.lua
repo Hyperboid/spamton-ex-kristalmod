@@ -1,5 +1,5 @@
----@class PipisShard: Bullet
-local PipisShard, super = Class(Bullet)
+---@class PipisShard: VisualBullet
+local PipisShard, super = Class(VisualBullet)
 
 function PipisShard:init(x,y,variation)
     super.init(self,x,y,"bullets/pipis/shard_" .. (variation or Utils.random(1,3,1)))
@@ -22,14 +22,6 @@ function PipisShard:init(x,y,variation)
         0xd9/256
     )
     self.tp = 0
-end
-
-function PipisShard:onDamage(soul)
-    return 0
-end
-
-function PipisShard:onCollide()
-    return false
 end
 
 return PipisShard

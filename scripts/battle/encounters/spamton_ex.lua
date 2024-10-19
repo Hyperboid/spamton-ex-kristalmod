@@ -11,7 +11,7 @@ function Sencounter:init()
     -- Text displayed at the bottom of the screen at the start of the encounter
     self.text = {
         "[face:susie/teeth_b][voice:susie]* Kris, what the hell??\nWe're going backwards?[wait:40]",
-        "[face:susie/annoyed][voice:susie]* We need to win FAST before we run outta track!"
+        "[face:susie/annoyed][voice:susie]* We need to win FAST before \nwe run outta track!"
     }
 
     -- Battle music ("battle" is rude buster)

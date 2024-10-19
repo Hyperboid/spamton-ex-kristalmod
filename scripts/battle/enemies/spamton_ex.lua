@@ -47,9 +47,9 @@ function SpamtonEX:init()
     -- Text randomly displayed at the bottom of the screen each turn
     self.text = {
         "* Spamton EX is doing strange\ndance moves!",
-	"* Spamton bakes a cake using a vegan pipis substitute.",
-	"* Smells like Spamton.",
-	"* Spamton tries to sell you a \ncar!\n[wait:4]...But he lost his keys."
+        "* Spamton bakes a cake using a vegan pipis substitute.",
+	    "* Smells like Spamton.",
+        "* Spamton tries to sell you a \ncar!\n[wait:4]...But he lost his keys."
     }
     -- Prevent from getting tired [at half pri] i mean health
     self.tired_percentage = 0

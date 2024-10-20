@@ -12,15 +12,15 @@ function BigHead:onAdd(parent)
     ---@type Timer
     local timer = self.wave.timer
     timer:script(function (wait)
-        timer:tween(2, self, {
+        timer:tween(1, self, {
             y = self.y - 112,
             scale_x = 3,
             scale_y = 3,
-        })
-        wait(2)
+        }, "sine")
+        wait(1)
         timer:tween(0.5, self, {
             y = self.y + 20,
-        })
+        }, "sine")
         self:setLayer(400)
         wait(0.5)
         self.sprite:setAnimation{"bullets/bighead/flip", 0.1, true}
@@ -37,10 +37,10 @@ function BigHead:onAdd(parent)
             ---@type Pipis
             local pipis = self.wave:spawnBullet("pipis", self.x, self.y)
             pipis:setPhysics({
-                gravity = 1.0,
+                gravity = 0.7,
                 speed = 0,
-                speed_x = i * 3,
-                speed_y = -10,
+                speed_x = i * 2,
+                speed_y = -7,
                 gravity_direction = math.rad(90),
                 direction = 0,
                 friction = 0,

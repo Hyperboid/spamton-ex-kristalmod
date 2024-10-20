@@ -15,7 +15,6 @@ function Sencounter:init()
     }
 
     -- Battle music ("battle" is rude buster)
-    self.music = nil--
     self.music = "murderbydeals"
     -- Enables the purple grid battle background
     self.background = false

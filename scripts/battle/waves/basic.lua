@@ -46,8 +46,8 @@ function Basic:onStart()
 end
 
 function Basic:bigHeadMode()
-    -- TODO: add big head
-    Assets.playSound("alert") -- placeholder
+    local head = self:spawnBullet("bighead", Game.battle.arena:getPosition())
+    head:setLayer(Game.battle.arena.layer - 1)
 end
 
 function Basic:onArenaEnter()

@@ -19,7 +19,7 @@ function Sencounter:init()
     -- Enables the purple grid battle background
     self.background = false
 
-    -- Add the dummy enemy to the encounter
+    -- Add spamton ex (YAY)
     self:addEnemy("spamton_ex", 511, 259)
 
     
@@ -31,8 +31,6 @@ function Sencounter:init()
     self.spamcarts.debug_select = false
     self.spamcarts.layer=-501
     self.drtimer = DeltaRuinedTimer(715)
-    --- Uncomment this line to add another!
-    --self:addEnemy("dummy")
 end
 
 function Sencounter:onBattleStart()

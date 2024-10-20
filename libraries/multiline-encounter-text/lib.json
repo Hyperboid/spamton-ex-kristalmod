@@ -1,0 +1,9 @@
+{
+    "id": "multiline-encounter-text",
+    "authors": [
+        "TFLTV", // The person who created this library
+    ],
+    "engineVer": "v0.9.0-dev",
+
+    "config": {}
+}

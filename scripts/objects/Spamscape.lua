@@ -33,6 +33,7 @@ end
 local bg_speed = 0.3
 local mg_speed = 0.7
 local fg_speed = 1.0
+
 function Spamscape:update()
     super.update(self)
     self.time = self.time + (DT * self.speed)

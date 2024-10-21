@@ -14,7 +14,7 @@ function FlyingHead:init(x, y, texture)
     self.target_x = self.x
     self.target_y = self.y
     self.shot_health = 1
-    self.shot_tp = 0.5 -- TODO: Get the actual amount from the game (I'm just guessing from the animation here)
+    self.shot_tp = 1 -- TODO: Get the actual amount from the game (I'm just guessing from the animation here) (Did some digging into the code, think its this.)
     self.lerper = 0
     self.shot_status = 0
     self.speed = 1
@@ -26,7 +26,6 @@ function FlyingHead:update()
     if self.alpha < 1 then return end -- this is temp
     self.lerper = self.lerper + (DT * self.speed)
     local t = 0
-
 
     if self.lerper < 1 then
         t = 1-math.pow(1-self.lerper, 1.8)

@@ -95,6 +95,8 @@ function BreakEffect:copyAppearance(other)
     self.origin_y = other.origin_y
     self.flip_x = other.sprite.flip_x ~= other.flip_x
     self.flip_y = other.sprite.flip_y ~= other.flip_y
+    if self.flip_x then self.origin_x = -self.origin_x end
+    if self.flip_y then self.origin_y = -self.origin_y end
     self.color = other.color
     self.layer = other.layer
 end

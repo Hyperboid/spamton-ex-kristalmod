@@ -95,7 +95,7 @@ end
 ---does the funny head thing
 ---@param timing_table table<integer, table<integer, integer>>
 function Spamton:inflateEgo(timing_table)
-    if self.ego then
+    if self.ego_tween then
         self.ego.handle.time = 100
         self.ego_cancel = true
         self.ego_tween.time = 1

@@ -20,7 +20,8 @@ function SmallBullet:update()
 
     super.update(self)
 
-    self.rotation=self.rotation+10
+    -- spin 3 full rotations per second
+    self.rotation=self.rotation+math.rad((360*3)*DT)
 
 end
 

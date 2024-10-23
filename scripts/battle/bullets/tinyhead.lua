@@ -5,7 +5,6 @@ function TinyHead:init(x, y, dir, speed)
     self.physics.direction = dir
     self.physics.speed = speed
     self:setScale(0.5)
-    self.tp = 100
 end
 
 return TinyHead

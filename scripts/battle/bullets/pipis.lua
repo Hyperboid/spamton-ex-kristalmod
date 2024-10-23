@@ -20,15 +20,32 @@ function Pipis:init(x, y, dir, speed)
     -- Speed the bullet moves (pixels per frame at 30FPS)
     self.physics.speed = speed
     self:setScale(2)
-
-
-self.rotation=0
-
-
+    self.rotation=0
+    self.detonate_rotation_start = 180
+    self.detonate_rotation_end = 360
+    self.detonate_rotation_step = 20
 end
 
--- No update method. Different types
--- of pipis will have their own.
+
+function Pipis:shouldDetonate()
+    return self.y > SCREEN_HEIGHT
+end
+
+function Pipis:update()
+    super.update(self)
+    if self:shouldDetonate() then
+        self:detonate()
+    end
+end
+
+function Pipis:detonate()
+    Assets.playSound("bomb", 1)
+    for angle = self.detonate_rotation_start, self.detonate_rotation_end, self.detonate_rotation_step do
+        self.wave:spawnBullet("tinyhead", self.x, self.y, math.rad(angle), 8)
+        self:remove()
+    end
+end
+
 
 function Pipis:onYellowShot(shot, damage)
     Assets.playSound("bomb", 0.4)

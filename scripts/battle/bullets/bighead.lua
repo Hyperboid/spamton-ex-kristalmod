@@ -39,7 +39,7 @@ function BigHead:onAdd(parent)
             pipis:setPhysics({
                 gravity = 0.7,
                 speed = 0,
-                speed_x = i * 2,
+                speed_x = i * 3,
                 speed_y = -7,
                 gravity_direction = math.rad(90),
                 direction = 0,

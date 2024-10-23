@@ -2,7 +2,7 @@
 local Basic, super = Class(Wave)
 function Basic:init()
     super.init(self)
-    self.time = 15
+    self.time = 18
 end
 
 function Basic:deployHeads()

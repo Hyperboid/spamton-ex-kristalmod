@@ -5,6 +5,8 @@ function Dedent(str)
     local lines = Utils.split(str, "\n", false)
     local shortest_indentation = math.huge
     for _, str in ipairs(lines) do
+        if str == "" then break end
+        if str == string.rep(" ", #str) then break end
         local this_indent = 1
         for i=1, #str do
             local char = str:sub(i,i)

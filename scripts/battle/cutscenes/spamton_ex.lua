@@ -1,11 +1,16 @@
 local scenes = {}
 local function simpleDialog(text)
-    return function(cutscene, spamton, kris, susie, ralsei)
-        cutscene:battlerText(spamton, text)
+    if type(text) ~= "table" then text = {text} end
+    return function(cutscene, spamton)
+        for i = 1, #text do
+            cutscene:battlerText(spamton, text[i])
+        end
     end
 end
+
+---@type (fun(cutscene:BattleCutscene, spamton: EnemyBattler.spamton_ex): string)[]
 scenes.turnbyturn = {
-    function(cutscene, spamton, kris, susie, ralsei)
+    function(cutscene, spamton)
         cutscene:battlerText(spamton,Dedent[==[
             HOLY [Howitzer]!! I'M
             SO [Ex] I CAN [Almost]
@@ -18,25 +23,18 @@ scenes.turnbyturn = {
             BE A [[BIG SHOT!!]] AND
             GIMME THAT [Soul.]
             YOU GOT!!!]==])
+        return "basic"
     end,
 }
-function scenes.fallback(cutscene, spamton, kris, susie, ralsei)
+function scenes.default(cutscene, spamton, kris, susie, ralsei)
     cutscene:battlerText(spamton, {
         Utils.pick({"KRIS! YOU [Little Sponge]", "SUSIE! YOU [Chalk Eater]", "RALSEI! YOU [Scringly Dingly]!"}),
     })
+    return "bluepipistest"
 end
----@param cutscene BattleCutscene
-function scenes.master(cutscene)
-	local enc = Game.battle.encounter
-	local spamton = Game.battle.enemies[1]
-    local kris = Game.battle.party[1]
-    local susie = Game.battle.party[2]
-    local ralsei = Game.battle.party[3]
-	-- cutscene:battlerText(spamton, {"[voice:spamton]I HAVE [Becomed] OMEGA", "NOW YOU [Canned] HURT ME [Jack]"}, spamfiguration)
-	if scenes.turnbyturn[Game.battle.turn_count] then
-		scenes.turnbyturn[Game.battle.turn_count](cutscene, spamton, kris, susie, ralsei)
-    else
-        scenes.fallback(cutscene, spamton, kris, susie, ralsei)
-	end
+
+for i=1,#scenes.turnbyturn do
+    scenes["turn_"..i] = scenes.turnbyturn[i]
 end
+
 return scenes

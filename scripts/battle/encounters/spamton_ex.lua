@@ -1,5 +1,5 @@
----@class Sencounter: Encounter
-local Sencounter, super = Class(Encounter)
+---@class Sencounter: ScriptedEncounter
+local Sencounter, super = Class("ScriptedEncounter")
 
 local function triangle(t)
     return ((math.abs(((t*100) % 100) - 50))/50)-.5
@@ -31,6 +31,7 @@ function Sencounter:init()
     self.spamcarts.debug_select = false
     self.spamcarts.layer=-501
     self.drtimer = DeltaRuinedTimer(715)
+    self.cutscene_group = "spamton_ex"
 end
 
 function Sencounter:onBattleStart()
@@ -51,14 +52,15 @@ function Sencounter:onTimerExpire()
     Game:gameOver(Game.battle:getSoulLocation())
 end
 
-function Sencounter:beforeStateChange(old,new) 
-    if new == "ENEMYDIALOGUE" and #Game.battle.enemies > 0 then
-		local cutscene = Game.battle:startCutscene("spamton_ex.master")
-		cutscene:after(function()
-            Game.battle:setState("DIALOGUEEND")
-		end)
-	end
-end
+-- function Sencounter:beforeStateChange(old,new)
+--     if new == "ENEMYDIALOGUE" and #Game.battle.enemies > 0 then
+-- 		local cutscene = Game.battle:startCutscene("spamton_ex.master")
+-- 		cutscene:after(function()
+--             Game.battle:setState("DIALOGUEEND")
+-- 		end)
+-- 	end
+-- end
+
 function Sencounter:update()
     super.update(self)
 end

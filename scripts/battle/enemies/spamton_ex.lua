@@ -1,4 +1,4 @@
----@class SpamtonEXBattler : EnemyBattler
+---@class EnemyBattler.spamton_ex : EnemyBattler
 local SpamtonEX, super = Class(EnemyBattler)
 
 function SpamtonEX:init()
@@ -102,31 +102,6 @@ function SpamtonEX:onAct(battler, name)
     -- If the act is none of the above, run the base onAct function
     -- (this handles the Check act)
     return super.onAct(self, battler, name)
-end
-
--- Adapted from Fun Town: ETERNAL LUMINA
-
-function SpamtonEX:selectWave()
-	if Game.world and Game.world.map and Game.world.map.spin_speed and Game.world.map.spin_speed < 0.32 then
-		Game.world.map.timer:tween(0.5, Game.world.map, {spin_speed = Game.world.map.spin_speed + 0.01}, 'in-sine')
-	end
-
-	local waves = self.waves
-	self.wave_count = self.wave_count + 1
-	
-	if waves and #waves > 0 then
-		local wave = waves[self.wave_count]
-		
-		if not wave then
-			local wave = Utils.pick(self.random_waves)
-			self.selected_wave = wave
-			
-			return wave
-		end
-		
-		self.selected_wave = wave
-		return waves[self.wave_count]
-	end
 end
 
 return SpamtonEX

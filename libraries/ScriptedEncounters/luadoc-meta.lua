@@ -1,0 +1,2 @@
+---@type ScriptedEncounter
+ScriptedEncounter = ScriptedEncounter

@@ -1,17 +1,15 @@
+---@param cutscene BattleCutscene
 return function(cutscene, group, subscene)
+    Game.battle.encounter:preTurnCutscene(cutscene)
     local enemy = Game.battle:getActiveEnemies()[1]
     local wave = nil
     if Registry.battle_cutscenes[group][subscene] then
-        wave = cutscene:gotoCutscene(group.."."..subscene, enemy)
+        Game.battle.encounter:postTurnCutscene(cutscene, cutscene:gotoCutscene(group.."."..subscene, enemy))
     elseif Registry.battle_cutscenes[group]["default"] then
-        wave = cutscene:gotoCutscene(group..".default", enemy)
+        Game.battle.encounter:postTurnCutscene(cutscene, cutscene:gotoCutscene(group..".default", enemy))
     else
         error("Missing battle cutscene "..group.."."..subscene..", and couldn't fallback to "..group..".default.")
     end
-    if wave then
-        enemy.wave_override = wave
-    end
-    return nil
 end
 
 ---@generic T: EnemyBattler

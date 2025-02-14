@@ -9,6 +9,7 @@ function DeltaRuinedTimer:init(duration, x, y)
     self.background = Sprite("backgrounds/timer",12,0)
     self.background.debug_select = false
     self.background.debug_select = false
+    self:setParallax(0)
     self.krishead = Sprite("party/kris/icon/head",68,7)
     self:addChild(self.background)
     self:addChild(self.krishead)
